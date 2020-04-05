@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewControllerCategory: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let categories = ["Men", "Women","Boy","Girl"]
+    let departments = ["Men", "Women","Boy","Girl"]
     
-    let categoriesImages: [UIImage] = [
+    let departmentsImages: [UIImage] = [
         UIImage(named:"men")!,
         UIImage(named:"women")!,
         UIImage(named:"boy")!,
@@ -26,29 +26,40 @@ class ViewControllerCategory: UIViewController, UICollectionViewDelegate,UIColle
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 0,left: 5,bottom: 0,right: 5)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20)/2, height: self.collectionView.frame.size.height/3)
 
-        self.navigationController?.navigationBar.tintColor = .white
+            // self.navigationController?.navigationBar.tintColor = .white
     }
   
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return departments.count
     }
 
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCategory", for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellDepartments", for: indexPath) as! DepartmentCollectionViewCell
        
-        cell.categoryLabel.text = categories[indexPath.item]
-        cell.categoryImageView.image = categoriesImages[indexPath.item]
+        cell.departmentsLabel.text = departments[indexPath.item]
+        cell.departmentsImageView.image = departmentsImages[indexPath.item]
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
-        
+           
       return cell
     }
+    
+    
 
+}
+
+extension ViewControllerDepartments: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: (self.collectionView.frame.size.width - 20)/2, height: self.collectionView.frame.size.height/3)
+    }
+    
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		905235D7243A7F7800C3FF2B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 905235D6243A7F7700C3FF2B /* Info.plist */; };
 		907A4EC924394A9300F36AC9 /* TableViewControllerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A4EC824394A9300F36AC9 /* TableViewControllerCategory.swift */; };
 		907A4ECB24394E3600F36AC9 /* TableViewControllerSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A4ECA24394E3600F36AC9 /* TableViewControllerSubCategory.swift */; };
 		90A2DDD3243665BB0007B379 /* TableViewControllerItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2DDD2243665BB0007B379 /* TableViewControllerItems.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		905235D6243A7F7700C3FF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Shopping/Info.plist; sourceTree = SOURCE_ROOT; };
 		907A4EC824394A9300F36AC9 /* TableViewControllerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCategory.swift; sourceTree = "<group>"; };
 		907A4ECA24394E3600F36AC9 /* TableViewControllerSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerSubCategory.swift; sourceTree = "<group>"; };
 		90A2DDD2243665BB0007B379 /* TableViewControllerItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerItems.swift; sourceTree = "<group>"; };
@@ -33,7 +35,6 @@
 		90BA068923E4CA84003996E7 /* Shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopping.xcdatamodel; sourceTree = "<group>"; };
 		90BA068B23E4CA86003996E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90BA068E23E4CA86003996E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		90BA069023E4CA86003996E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +109,7 @@
 		90BA069923E4CAFC003996E7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				90BA069023E4CA86003996E7 /* Info.plist */,
+				905235D6243A7F7700C3FF2B /* Info.plist */,
 				90BA068B23E4CA86003996E7 /* Assets.xcassets */,
 			);
 			path = "Support Files";
@@ -172,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905235D7243A7F7800C3FF2B /* Info.plist in Resources */,
 				90BA068F23E4CA86003996E7 /* LaunchScreen.storyboard in Resources */,
 				90BA068C23E4CA86003996E7 /* Assets.xcassets in Resources */,
 				90BA068723E4CA84003996E7 /* Main.storyboard in Resources */,
