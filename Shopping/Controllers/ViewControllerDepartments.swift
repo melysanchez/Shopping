@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+  
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let departments = ["Men", "Women","Boy","Girl"]
     
@@ -26,7 +31,6 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 0,left: 5,bottom: 0,right: 5)
         layout.minimumInteritemSpacing = 5
@@ -41,7 +45,7 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellDepartments", for: indexPath) as! DepartmentCollectionViewCell
-       
+      
         cell.departmentsLabel.text = departments[indexPath.item]
         cell.departmentsImageView.image = departmentsImages[indexPath.item]
         cell.layer.borderColor = UIColor.lightGray.cgColor
@@ -50,8 +54,20 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
       return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        let itemselecter = indexPath.item
+        print("item selecter : \(itemselecter)")
+        cell?.layer.borderColor = UIColor.gray.cgColor
+        cell?.layer.borderWidth = 2
+        performSegue(withIdentifier: "goToCategory", sender: nil)
+    }
     
-
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderColor = UIColor.lightGray.cgColor
+        cell?.layer.borderWidth = 0.5
+    }
 }
 
 extension ViewControllerDepartments: UICollectionViewDelegateFlowLayout {

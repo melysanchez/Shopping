@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>161137919522-mpk9bn3u4d78p7j0mtsomn9hss78ld05.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.161137919522-mpk9bn3u4d78p7j0mtsomn9hss78ld05</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDRgs2kUXuP8CAqITEJDIR64uD6zeAWVl4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>161137919522</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.katherynneh.Shopping</string>
+	<key>PROJECT_ID</key>
+	<string>shopping-8b3a9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shopping-8b3a9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:161137919522:ios:7794e6c9fc70db7534ac7b</string>
+	<key>DATABASE_URL</key>
+	<string>https://shopping-8b3a9.firebaseio.com</string>
+</dict>
+</plist>
