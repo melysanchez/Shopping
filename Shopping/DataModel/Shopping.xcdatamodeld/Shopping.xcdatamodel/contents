@@ -2,21 +2,25 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
         <attribute name="nameCategory" optional="YES" attributeType="String"/>
+        <relationship name="childSubCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubCategory"/>
+        <relationship name="parentDepartment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Departament"/>
     </entity>
     <entity name="Departament" representedClassName="Departament" syncable="YES" codeGenerationType="class">
         <attribute name="nameDepartament" optional="YES" attributeType="String"/>
+        <relationship name="childCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="item" optional="YES" attributeType="String"/>
+        <relationship name="parentSubCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubCategory"/>
     </entity>
     <entity name="SubCategory" representedClassName="SubCategory" syncable="YES" codeGenerationType="class">
         <attribute name="nameSubCategory" optional="YES" attributeType="String"/>
         <relationship name="parentCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category"/>
     </entity>
     <elements>
-        <element name="Departament" positionX="-81.56640625" positionY="-421.58984375" width="128" height="58"/>
-        <element name="Category" positionX="119.90625" positionY="-418.71484375" width="128" height="58"/>
-        <element name="Item" positionX="-81.3046875" positionY="-300.68359375" width="128" height="58"/>
-        <element name="SubCategory" positionX="129.6875" positionY="-302.20703125" width="128" height="73"/>
+        <element name="Category" positionX="40.640625" positionY="-410.10546875" width="128" height="88"/>
+        <element name="Departament" positionX="-103.94140625" positionY="-526.52734375" width="128" height="73"/>
+        <element name="Item" positionX="-28.37109375" positionY="-203.59375" width="128" height="73"/>
+        <element name="SubCategory" positionX="130.375" positionY="-289.2265625" width="128" height="73"/>
     </elements>
 </model>
