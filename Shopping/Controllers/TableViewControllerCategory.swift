@@ -7,34 +7,70 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
-class TableViewControllerCategory: UITableViewController {
+class TableViewControllerCategory:UITableViewController{
 
+    var categories = [TestCate]()
+    
     override func viewDidLoad() {
            super.viewDidLoad()
+        //TODO: Register your MessageCell.xib file here:
+//        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "customMCategoryCell")
+//
+            loadData()
        }
 
        // MARK: - Table view data source
 
        override func numberOfSections(in tableView: UITableView) -> Int {
            // #warning Incomplete implementation, return the number of sections
-           return 0
+        return 1
        }
 
        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            // #warning Incomplete implementation, return the number of rows
-           return 0
+           return categories.count
        }
 
-       /*
+
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-           // Configure the cell...
-
-           return cell
+        
+//           //Create new design cell
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCategoryCell", for: indexPath) as? CustomCategoryCell else { return UITableViewCell() }
+        
+           let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        
+        let category = categories[indexPath.row]
+        
+        cell.textLabel?.text = category.name
+        
+        return cell
        }
-       */
+       
+    //MARK: FireBaseData
+    func loadData(){
+        let ref = Database.database().reference()
+        
+        //Receive Data from Firebase
+             ref.child("Category").observe(.value) { [weak self] (data) in
+                 if let array =  data.value as? [String:AnyObject] {
+                    array.forEach { item in
+                        if let item = item.value as? [String:AnyObject] {
+                            let name = item["name"] as? String
+                            self?.categories.append(TestCate(name: name))
+                          }
+                    
+                     }
+                 }
+                 DispatchQueue.main.async {
+                     self?.tableView.reloadData()
+                 }
+                 
+             }
+        
+    }
 
        /*
        // Override to support conditional editing of the table view.

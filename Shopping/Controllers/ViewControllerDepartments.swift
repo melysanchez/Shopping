@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import FirebaseDatabase
 import Firebase
 
@@ -18,8 +17,8 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
         collectionView.delegate = self
         
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 0,left: 5,bottom: 0,right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 5,left: 5,bottom: 0,right: 5)
         layout.minimumInteritemSpacing = 5
 
         loadFirebaseData()

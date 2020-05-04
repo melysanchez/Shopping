@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="PTF-ne-EAn">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="I'm looking for" id="PTF-ne-EAn">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="52J-ej-yVL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="52J-ej-yVL">
                                 <rect key="frame" x="0.0" y="72" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52J-ej-yVL" id="IcP-9h-pJM">
@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U7P-5Z-8QU">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="awj-NE-hvn">
                                     <size key="itemSize" width="184" height="238"/>
@@ -183,23 +183,16 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="I'm looking for..." translatesAutoresizingMaskIntoConstraints="NO" id="zX3-GU-LyD">
-                                <rect key="frame" x="0.0" y="50" width="375" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="KCR-qq-raM"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zX3-GU-LyD" firstAttribute="leading" secondItem="osT-3b-Zvf" secondAttribute="leading" id="HxU-mH-yom"/>
+                            <constraint firstItem="U7P-5Z-8QU" firstAttribute="top" secondItem="osT-3b-Zvf" secondAttribute="top" id="HVu-DU-uaS"/>
                             <constraint firstItem="U7P-5Z-8QU" firstAttribute="leading" secondItem="osT-3b-Zvf" secondAttribute="leading" id="JQb-ef-ceW"/>
-                            <constraint firstItem="zX3-GU-LyD" firstAttribute="trailing" secondItem="osT-3b-Zvf" secondAttribute="trailing" id="XRh-VU-M34"/>
+                            <constraint firstItem="U7P-5Z-8QU" firstAttribute="leading" secondItem="osT-3b-Zvf" secondAttribute="leading" id="NhF-w5-EaU"/>
+                            <constraint firstItem="U7P-5Z-8QU" firstAttribute="bottom" secondItem="osT-3b-Zvf" secondAttribute="bottom" id="TcT-1n-FKd"/>
                             <constraint firstItem="U7P-5Z-8QU" firstAttribute="bottom" secondItem="osT-3b-Zvf" secondAttribute="bottom" id="aBc-XU-3tx"/>
-                            <constraint firstItem="U7P-5Z-8QU" firstAttribute="top" secondItem="zX3-GU-LyD" secondAttribute="bottom" id="hZv-VH-rao"/>
+                            <constraint firstItem="U7P-5Z-8QU" firstAttribute="trailing" secondItem="osT-3b-Zvf" secondAttribute="trailing" id="iN9-6E-LzK"/>
                             <constraint firstAttribute="trailing" secondItem="U7P-5Z-8QU" secondAttribute="trailing" id="oAe-Wa-d9p"/>
-                            <constraint firstItem="zX3-GU-LyD" firstAttribute="top" secondItem="dC9-Jf-jgb" secondAttribute="top" constant="50" id="zPe-Cg-FOo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="osT-3b-Zvf"/>
                     </view>
