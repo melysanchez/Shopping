@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CustomCategoryCell: UITableViewCell {
 
@@ -19,5 +20,17 @@ class CustomCategoryCell: UITableViewCell {
         // Initialization code
     }
 
-    
+    func setup(name: String, imageURL: String) {
+        categoryName.text = name
+        ImageService().downloadImage(with: imageURL) { [weak self] (result) in
+            switch result {
+            case .success(let categoryImage):
+                self?.categoryImageView.image = categoryImage
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
+
+

@@ -13,48 +13,50 @@ import Firebase
 class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
     // Declare instance variables here
-     var departments = [DepartmentsClass]()
+    var departments = [Departments]()
+    var departmentSelected : String?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 5,left: 5,bottom: 0,right: 5)
-        layout.minimumInteritemSpacing = 5
-
+        layout.sectionInset = UIEdgeInsets(top: 20,left: 10,bottom: 20,right: 10)
+        layout.minimumInteritemSpacing = 10
+        
         loadFirebaseData()
     }
-  
+    
+    
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return departments.count
     }
-
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellDepartments", for: indexPath) as! DepartmentCollectionViewCell
         
         cell.setup(displayName: departments[indexPath.item].displayname!, imageURL: departments[indexPath.item].imagenURL!)
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 0.5
-           
-      return cell
+        
+        return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        let itemselecter = indexPath.item
-        print("item selecter : \(itemselecter)")
+        departmentSelected = departments[indexPath.item].displayname
+        print("SELECCIONADO : \(String(describing: departmentSelected))")
+        
         cell?.layer.borderColor = UIColor.gray.cgColor
-        cell?.layer.borderWidth = 2
-        performSegue(withIdentifier: "goToCategory", sender: nil)
+        cell?.layer.borderWidth = 1
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "TableViewControllerCategory") as! TableViewControllerCategory
+        vc.selectedDepartment = departmentSelected
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -67,7 +69,7 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
     func loadFirebaseData(){
         //Creating reference firebasedatabse
         let ref = Database.database().reference()
-               
+        var tempArray = [Departments]()
         //Receive Data from Firebase
         ref.child("Departments").observe(.value) { [weak self] (data) in
             if let array =  data.value as? [String:AnyObject] {
@@ -75,24 +77,27 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
                     if let item = item.value as? [String:AnyObject] {
                         let name = item["displayname"] as? String
                         let imageURL = item["imagen"] as? String
-                        self?.departments.append(DepartmentsClass(displayname: name, imagenURL: imageURL))
+                        tempArray.append(Departments(displayname: name, imagenURL: imageURL))
                     }
                 }
             }
             DispatchQueue.main.async {
+                self?.departments = tempArray.sorted(by: { (dep1, dep2) -> Bool in
+                    return dep1.displayname! < dep2.displayname!
+                })
                 self?.collectionView.reloadData()
             }
             
         }
-        }
-    
     }
+    
+}
 
 extension ViewControllerDepartments: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: (self.collectionView.frame.size.width - 20)/2, height: 230)
+        return CGSize(width: (self.collectionView.frame.size.width - 40)/2, height: 200)
     }
     
 }

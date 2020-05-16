@@ -8,7 +8,8 @@
 
 import UIKit
 
-struct TestCate {
+struct AllCategories {
     var name : String?
+    var imageurl: String?
 }
 

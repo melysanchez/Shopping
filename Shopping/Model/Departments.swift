@@ -8,7 +8,7 @@
 //  This is the model class that represents the blueprint for a departments
 import UIKit
 
-struct DepartmentsClass {
+struct Departments {
     //TODO: Departments need a displayname and a imagen variable
     var displayname : String?
     var imagenURL:String?
