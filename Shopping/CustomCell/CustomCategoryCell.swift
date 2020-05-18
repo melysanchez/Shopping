@@ -18,6 +18,11 @@ class CustomCategoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        categoryImageView.layer.cornerRadius = categoryImageView.frame.size.height / 2
+        categoryImageView.layer.masksToBounds = true
+        categoryImageView.layer.borderWidth = 1
+        categoryImageView.layer.borderColor = UIColor.darkGray.cgColor
     }
 
     func setup(name: String, imageURL: String) {
