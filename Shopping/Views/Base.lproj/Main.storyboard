@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7hj-m3-cRV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Fd-0L-dja">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -98,10 +98,79 @@
             </objects>
             <point key="canvasLocation" x="2550" y="99"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Cart-->
+        <scene sceneID="SPl-UJ-W0j">
+            <objects>
+                <viewController id="FFH-bf-03Z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="52d-46-CFH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="H89-dn-rKs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="bag" catalog="system" id="bhi-Q1-5C0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCd-Zh-LR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1601" y="862"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="x71-cw-ren">
+            <objects>
+                <viewController id="EdH-G3-GLS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zal-ZW-gxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ShZ-AN-Yfv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="0M7-mv-E8I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nq-d1-v6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2359" y="862"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="sjG-xI-gE2">
+            <objects>
+                <viewController id="xJ4-yk-fIL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ag1-U4-V8f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ABf-QZ-HdC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" image="person" catalog="system" id="qGk-0X-fW9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cj0-E3-J5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-881" y="863"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="odD-6o-wZ8">
+            <objects>
+                <tabBarController id="7Fd-0L-dja" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B4J-J7-evz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7hj-m3-cRV" kind="relationship" relationship="viewControllers" id="Cz4-fJ-i0K"/>
+                        <segue destination="EdH-G3-GLS" kind="relationship" relationship="viewControllers" id="ewM-h9-KCO"/>
+                        <segue destination="FFH-bf-03Z" kind="relationship" relationship="viewControllers" id="reg-cz-KLV"/>
+                        <segue destination="xJ4-yk-fIL" kind="relationship" relationship="viewControllers" id="zZi-hE-7VO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76G-Wy-2tO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1394" y="99"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="qd2-oQ-HCo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7hj-m3-cRV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="Wbe-pH-pVQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aqB-nk-1oh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -133,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U7P-5Z-8QU">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="awj-NE-hvn">
                                     <size key="itemSize" width="283" height="323"/>
@@ -193,6 +262,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQH-gE-Iml">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -216,4 +291,10 @@
             <point key="canvasLocation" x="199.19999999999999" y="99.400299850074973"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+    </resources>
 </document>
