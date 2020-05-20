@@ -16,7 +16,7 @@ class DepartmentCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.borderWidth = 1
+        containerView.layer.borderWidth = 0.5
         containerView.layer.borderColor = UIColor.darkGray.cgColor
         containerView.layer.cornerRadius = 5
         containerView.clipsToBounds = true

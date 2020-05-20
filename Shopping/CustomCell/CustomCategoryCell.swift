@@ -21,7 +21,7 @@ class CustomCategoryCell: UITableViewCell {
         
         categoryImageView.layer.cornerRadius = categoryImageView.frame.size.height / 2
         categoryImageView.layer.masksToBounds = true
-        categoryImageView.layer.borderWidth = 1
+        categoryImageView.layer.borderWidth = 0.5
         categoryImageView.layer.borderColor = UIColor.darkGray.cgColor
     }
 

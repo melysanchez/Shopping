@@ -17,9 +17,7 @@ class TableViewControllerSubCategory: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("selectedDepartment: \(selectedDepartment)")
-        print("selectedCategory : \(selectedCategory)")
-        
+        self.title = selectedCategory
         loadData()
         tableView.separatorStyle = .none
         
@@ -44,13 +42,20 @@ class TableViewControllerSubCategory: UITableViewController {
         
         let item = subcategory[indexPath.row]
         cell.textLabel?.text = item.displayname
+        cell.textLabel?.font = UIFont(name:"Helvetica Neue", size:20)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let subCateSelected = subcategory[indexPath.row].displayname
-        // print("SUBCATESELECTED CATEGORY: \(String(describing: subCateSelected))")
+       
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+               let vc = storyboard.instantiateViewController(identifier: "ViewControllerItems") as! ViewControllerItems
+               vc.selectedCategory = selectedCategory
+               vc.selectedDepartment = selectedDepartment
+               vc.selectedSubCategory = subCateSelected
+         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: FireBaseData
@@ -64,7 +69,6 @@ class TableViewControllerSubCategory: UITableViewController {
                 array.forEach { item in
                     if let item = item.value as? [String:AnyObject] {
                         
-                        //  print("ITEM :\(item)")
                         let displayname = item["displayname"] as? String
                         let flagCategory = item["flagCategory"] as? String
                         let flagDepartment = item["flagDepartment"] as? String
@@ -74,6 +78,11 @@ class TableViewControllerSubCategory: UITableViewController {
             }
             
             DispatchQueue.main.async {
+//                self?.subcategory = tempArray.sorted(by: {(dep1, dep2) -> Bool
+//                                        in
+//                                        return dep1.displayname! < dep2.displayname!
+//                                    })
+//                guard let tempSubCategory = self?.subcategory else {return}
                 self?.showData(array: tempArray)
             }
             

@@ -27,12 +27,10 @@ class TableViewControllerCategory:UITableViewController{
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return categories.count
     }
     
@@ -50,7 +48,6 @@ class TableViewControllerCategory:UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categorySelected = categories[indexPath.row].name
-        print("ITEM CATEGORY: \(String(describing: categorySelected))")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "TableViewControllerSubCategory") as! TableViewControllerSubCategory
@@ -61,10 +58,10 @@ class TableViewControllerCategory:UITableViewController{
     }
     
     
-    
     //MARK: FireBaseData
     func loadData(){
         let ref = Database.database().reference()
+        var tempArray = [AllCategories]()
         
         //Receive Data from Firebase
         ref.child("Category").observe(.value) { [weak self] (data) in
@@ -73,12 +70,15 @@ class TableViewControllerCategory:UITableViewController{
                     if let item = item.value as? [String:AnyObject] {
                         let name = item["name"] as? String
                         let imageURL = item["image"] as? String
-                        self?.categories.append(AllCategories(name: name,imageurl: imageURL))
+                        tempArray.append(AllCategories(name: name,imageurl: imageURL))
                     }
                     
                 }
             }
             DispatchQueue.main.async {
+                self?.categories = tempArray.sorted(by: { (dep1, dep2) -> Bool in
+                    return dep1.name! < dep2.name!
+                         })
                 self?.tableView.reloadData()
             }
             

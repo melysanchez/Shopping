@@ -48,10 +48,9 @@ class ViewControllerDepartments: UIViewController, UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         departmentSelected = departments[indexPath.item].displayname
-        print("SELECCIONADO : \(String(describing: departmentSelected))")
         
         cell?.layer.borderColor = UIColor.gray.cgColor
-        cell?.layer.borderWidth = 1
+        cell?.layer.borderWidth = 1.5
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "TableViewControllerCategory") as! TableViewControllerCategory
